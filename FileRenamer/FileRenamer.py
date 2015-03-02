@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 
 
 def main():
@@ -17,6 +18,19 @@ def checkArguments():
         print "Arguments = " + str(sys.argv)
 
 
+def atoi(text):
+    return int(text) if text.isdigit() else text
+
+
+def natural_keys(text):
+    '''
+    alist.sort(key=natural_keys) sorts in human order
+    http://nedbatchelder.com/blog/200712/human_sorting.html
+    (See Toothy's implementation in the comments)
+    '''
+    return [ atoi(c) for c in re.split('(\d+)', text) ]
+
+
 def performRenaming():
     folderToBeRenamed = sys.argv[1]
     newNaming = sys.argv[2].split(".")
@@ -29,6 +43,7 @@ def performRenaming():
         listOfFiles.extend(fileNames)
         break
 
+    listOfFiles.sort(key = natural_keys)
 
     # This for loop performs the renaming of the files
     # listOfFiles is an array of strings
