@@ -34,8 +34,6 @@ def natural_keys(text):
 def performRenaming():
     folderToBeRenamed = sys.argv[1]
     newNaming = sys.argv[2].split(".")
-    # print "Folder To Be Renamed = " + folderToBeRenamed
-    print "New Name = " + str(newNaming)
 
     # in this for loop, os.walk() grabs all the files in the folder that user has specified in the argument
     listOfFiles = []
@@ -55,11 +53,5 @@ def performRenaming():
         os.renames(originalFileNameWithPath, newFileName)
         counter += 1
 
-    # for(i = 0; i < listOfFiles.size(); i++) {
-    # 	fileName = listOfFiles[i];
-    # }
-
-    # number = 0
-    # thisthing = "hello"
 
 main()
