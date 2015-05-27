@@ -1,3 +1,5 @@
+#Batch renaming of Files
+
 This script does batch renaming of the files in a specified directory.
 The script sorts the files in the directory alphabetically in a human sorting order
 and renames the files according to your new naming convention.
